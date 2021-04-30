@@ -1,0 +1,9 @@
+#spring:
+#    #数据源
+#  datasource:
+#    url: jdbc:mysql://47.106.133.91:3306/websql??useUnicode=true&amp;characterEncoding=UTF-8
+#    username: root
+#    password: doctor
+#    driver-class-name: com.mysql.jdbc.Driver
+#
+#

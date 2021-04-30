@@ -27,6 +27,6 @@ public class SysRole implements Serializable {
     private String description; // 角色描述,UI界面显示使用
     private Boolean available = Boolean.TRUE; // 是否可用,如果不可用将不会添加给用户
     @ManyToMany(fetch= FetchType.EAGER)
-    @JoinTable(name="AUTH_MENU",joinColumns={@JoinColumn(name="roleId")},inverseJoinColumns={@JoinColumn(name="permissionId")})
+    //@JoinTable(name="AUTH_MENU",joinColumns={@JoinColumn(name="roleId")},inverseJoinColumns={@JoinColumn(name="permissionId")})
     private List<SysPermission> permissions;
 }
