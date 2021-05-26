@@ -1,6 +1,9 @@
 package com.doctor.service.impl;
 
 import com.doctor.common.dao.SysUserLogMapper;
+import com.doctor.common.dao.UserMapper;
+import com.doctor.common.entity.User;
+import com.doctor.common.entity.UserExample;
 import com.doctor.dao.*;
 import com.doctor.model.*;
 import com.doctor.security.MyShiroRealm;
@@ -58,9 +61,15 @@ public class LoginServiceImpl implements LoginService {
     @Autowired
     private SysUserLogMapper sysUserLogMapper;
 
+    @Autowired
+    private UserMapper sysUserMapper;
+
     @Override
-    public SysUser findByUserName(String userName) {
-        return sysUserRepository.findByUserName(userName);
+    public User findByUserName(String userName) {
+        UserExample sysUserExample = new UserExample();
+        sysUserExample.createCriteria().andUserNameEqualTo(userName);
+        User user =  sysUserMapper.selectByExample(sysUserExample).get(0);
+        return user;
     }
 
     @Override

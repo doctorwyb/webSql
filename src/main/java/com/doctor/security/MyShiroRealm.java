@@ -1,5 +1,6 @@
 package com.doctor.security;
 
+import com.doctor.common.entity.User;
 import com.doctor.model.SysPermission;
 import com.doctor.model.SysRole;
 import com.doctor.model.SysUser;
@@ -52,7 +53,7 @@ public class MyShiroRealm extends AuthorizingRealm {
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token)
             throws AuthenticationException {
         String userName = (String)token.getPrincipal();
-        SysUser user = loginService.findByUserName(userName);
+        User user = loginService.findByUserName(userName);
         if(user == null){
             return null;
         }
