@@ -132,7 +132,7 @@
 
 
     <springProfile name="dev">
-        <logger name="com.doctor" level="debug"/>
+        <logger name="com.itboy" level="debug"/>
     </springProfile>
 
     <root level="info">
