@@ -1,6 +1,5 @@
 package com.doctor.service;
 
-import com.doctor.common.entity.User;
 import com.doctor.model.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -13,7 +12,7 @@ import java.util.Set;
  * @Date 2019/6/14 0014 10:52
  **/
 public interface LoginService {
-    User findByUserName(String userName);
+    SysUser findByUserName(String userName);
 
     LoginResult login(String userName, String password, HttpServletRequest request);
 
