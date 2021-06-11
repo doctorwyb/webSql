@@ -9,7 +9,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 /**
  * @ClassName WEBSQL-PORJECT
  * @Description 网页版执行SQL
- * @Author 超 boy_0214@sina.com
+ * @Author wyb
  **/
 @SpringBootApplication
 @EnableJpaAuditing
