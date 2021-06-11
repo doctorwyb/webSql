@@ -38,7 +38,8 @@ public class DbSourceFactory {
         SysSetup sysSetup =  getSysSetUp();
         if(sysSetup.getInitDbsource()==0){
             log.info("Initializing System...");
-            loginService.initSystem();
+            //todo
+            //loginService.initSystem();
         }
 
         if(sysSetup.getInitDbsource()==1){
