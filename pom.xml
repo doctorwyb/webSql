@@ -11,6 +11,7 @@
     <groupId>com.itboy.websql</groupId>
     <artifactId>websql</artifactId>
     <version>1.0-Release</version>
+    <packaging>war</packaging>
     <name>webplsql</name>
     <description>webplsql project for Spring Boot</description>
     <repositories>

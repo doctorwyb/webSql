@@ -150,6 +150,7 @@ public class DbSourceController {
     public Map dbsourceSqlList(DbSourceModel model) {
         List<DbSourceModel> resultData = dbSourceService.dbsourceSqlList(model);
         Map result = new HashMap();
+        DbSourceModel dbSourceModel = new DbSourceModel();
         result.put("code", 0);
         result.put("data", resultData);
         return result;
@@ -250,7 +251,7 @@ public class DbSourceController {
     @RequestMapping("dbSource/sqlController/sqlTextList")
     @ResponseBody
     public Map sqlTextList(DbSourceModel model) {
-        List<DbSourceModel> resultData = dbSourceService.sqlTextList(model);
+        List<DbSourceModel> resultData = new ArrayList<>();  //dbSourceService.sqlTextList(model);
         Map result = new HashMap();
         result.put("code", 0);
         result.put("data", resultData);

@@ -80,10 +80,10 @@
             <button id="newSqlOpen" onclick="window.open('/dbSource/sqlExecute/sqlPage');return false"  class="layui-btn layui-btn-normal">
                 <i class="fa fa-link">&nbsp;</i>新窗口F7
             </button>
-            <div class="layui-input-inline">
+           <!-- <div class="layui-input-inline">
                 <div cyType="selectTool" cyProps="url:'/dbSource/sqlController/sqlTextList',search:'true',filter:'sqlTexts'"
                      name="sqlTexts" id="sqlTexts" cyProps.tips="无已保存的SQL"  value="0" class="layui-input-inline"></div>
-            </div>
+            </div>-->
             <button   id="saveSqlText" class="layui-btn layui-btn-warm">
                 <i class="fa fa-save">&nbsp;</i>保存F9
             </button>
@@ -152,14 +152,14 @@
             }
         });
 
-        form.on('select(sqlTexts)', function (data) {
+/*        form.on('select(sqlTexts)', function (data) {
             var datas = data.value;
             var sqltext = editor.getValue();
             if(sqltext!="" || sqltext!=null){
                 datas = sqltext+'\n'+datas+"\n";
             }
             editor.setValue(datas);
-        });
+        });*/
         element.on('tab(sqlTab)', function(data){
             tabId = data.index;
         });
