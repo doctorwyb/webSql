@@ -16,7 +16,7 @@
         </commentGenerator>
         <!--数据库链接URL，用户名、密码 -->
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-            connectionURL="jdbc:mysql://47.106.133.91:3306/websql" userId="root" password="doctor">
+            connectionURL="jdbc:mysql://39.101.192.6:3306/websql" userId="root" password="doctor">
         </jdbcConnection>
         <javaTypeResolver>
             <property name="forceBigDecimals" value="false" />
@@ -39,7 +39,7 @@
         </javaClientGenerator>
         <!-- 要生成哪些表 -->
 
-        <table tableName="auth_menu" domainObjectName="AuthMenu">
+        <table tableName="auth_user" domainObjectName="AuthUser">
             <generatedKey column="id" sqlStatement="SELECT CONCAT(uuid_short(),'')" identity="id" type="pre" />
         </table>
 

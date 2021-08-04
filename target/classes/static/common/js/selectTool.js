@@ -163,7 +163,7 @@
             }
             if (data != undefined) {
                 for (var i = 0; i < data.length; i++) {
-                    var _option = '<option value="' + data[i].CODE + '">' + data[i].VALUE + '</option>';
+                    var _option = '<option value="' + data[i].code + '">' + data[i].value + '</option>';
                     if(_multiple == "false"){
                         //设置默认值
                         if (_value == data[i].code) {

@@ -52,6 +52,9 @@ public class MyShiroRealm extends AuthorizingRealm {
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token)
             throws AuthenticationException {
         String userName = (String)token.getPrincipal();
+        if (userName == null) {
+            return null;
+        }
         SysUser user = loginService.findByUserName(userName);
         if(user == null){
             return null;

@@ -1,5 +1,8 @@
 package com.itboy.service.impl;
 
+import com.common.dao.AuthUserMapper;
+import com.common.model.entity.AuthUser;
+import com.common.model.entity.AuthUserExample;
 import com.itboy.dao.*;
 import com.itboy.model.*;
 import com.itboy.security.MyShiroRealm;
@@ -15,6 +18,7 @@ import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.mgt.RealmSecurityManager;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -54,9 +58,18 @@ public class LoginServiceImpl implements LoginService {
     @Autowired
     private SysMenuRepository sysMenuRepository;
 
+    @Autowired
+    private AuthUserMapper authUserMapper;
+
     @Override
     public SysUser findByUserName(String userName) {
-        return sysUserRepository.findByUserName(userName);
+        SysUser sysUser = new SysUser();
+        AuthUserExample authUserExample = new AuthUserExample();
+        authUserExample.createCriteria().andUserNameEqualTo(userName);
+        AuthUser authUser =  authUserMapper.selectByExample(authUserExample).get(0);
+        BeanUtils.copyProperties(authUser,sysUser);
+        return sysUser;
+
     }
 
     @Override
