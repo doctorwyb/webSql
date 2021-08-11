@@ -42,7 +42,8 @@ public class LoginController {
         ModelAndView mav = new ModelAndView("login");
         Subject currentUser = SecurityUtils.getSubject();
         if (currentUser.isAuthenticated() == true) {
-            SysUser user = (SysUser) currentUser.getPrincipal();
+            String userName = (String) currentUser.getPrincipal();
+            SysUser user = loginService.findByUserName(userName);
             mav.setViewName("index");
             mav.addObject("users",user);
         }
@@ -91,14 +92,14 @@ public class LoginController {
     public String login(Map<String, Object> map, HttpServletRequest request) throws Exception{
         String userName = request.getParameter("userName").trim().toLowerCase();
         String password = request.getParameter("password").trim().toLowerCase();
-        String captcha = request.getParameter("captcha").trim().toLowerCase();
+       /* String captcha = request.getParameter("captcha").trim().toLowerCase();
         if (!CaptchaUtil.ver(captcha, request)) {
             CaptchaUtil.clear(request);
             map.put("msg", "验证码不正确！");
             map.put("userName",userName);
             map.put("logins",2);
             return JSON.toJSONString(map);
-        }
+        }*/
         LoginResult loginResult = loginService.login(userName,password,request);
         if(!loginResult.isLogin())
         {

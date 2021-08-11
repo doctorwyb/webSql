@@ -33,4 +33,7 @@ public class ExecuteSql {
     @Transient
     private JSONObject dataObj;
 
+    @Transient
+    private String logName;
+
 }

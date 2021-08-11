@@ -161,7 +161,7 @@ public class LoginServiceImpl implements LoginService {
         sysUserRepository.save(sysUserById);
         RealmSecurityManager rsm = (RealmSecurityManager)SecurityUtils.getSecurityManager();
         MyShiroRealm realm = (MyShiroRealm)rsm.getRealms().iterator().next();
-        realm.clearAllCache();
+        //realm.clearAllCache();
     }
 
     @Override

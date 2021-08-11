@@ -22,10 +22,11 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @ClassName 控制层
- * @Description 操作数据源及执行sql
- * @Author 超 boy_0214@sina.com
- * @Date 2019/6/14 0014 17:03
+ * @Author wuyanbing
+ * @Description //操作数据源及执行sql
+ * @Date 2021/8/4 16:19
+ * @Param
+ * @return
  **/
 @Controller
 @Slf4j
@@ -190,17 +191,18 @@ public class DbSourceController {
             logs.setLogContent(sql.getSqlText());
             logs.setLogResult(dataList.toString());
             logs.setLogType("1");
-            logs.setLogName("SQL执行");
+            logs.setLogName(sql.getLogName());
             logs.setLogDbSource(sql.getDataType());
             logs.setUserid(userName);
             result.put("dataList", dataList);
         } catch (Exception e) {
-            logs.setLogContent(sql.getSqlText());
+            //执行失败sql不保存记录
+            /*logs.setLogContent(sql.getSqlText());
             logs.setLogResult(e.getMessage());
             logs.setLogType("1");
             logs.setLogName("sql执行记录");
             logs.setLogDbSource(sql.getDataType());
-            logs.setUserid(userName);
+            logs.setUserid(userName);*/
             log.error(e.getMessage());
             result.put("code", 2);
             result.put("msg", e.getMessage());

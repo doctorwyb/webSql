@@ -87,14 +87,17 @@
             <button   id="saveSqlText" class="layui-btn layui-btn-warm">
                 <i class="fa fa-save">&nbsp;</i>保存F9
             </button>
-            <button id="exportData" class="layui-btn layui-btn-primary">
-                <i class="fa fa-file-excel-o">&nbsp;</i>导出
-            </button>
         </div>
     </div>
 </form>
 </div>
+<div class="layui-form-item">
+        <label class="layui-form-label">sql功能解释</label>
+        <div class="" >
+            <textarea id='logName' style="width: 50%;height: 50px;display:block;" ></textarea>
+        </div>
 
+</div>
 <div class="sqltxt" >
     <textarea id='sqlText' style="width: 100%;height: 500px;display:block;" ></textarea>
 </div>
@@ -170,6 +173,7 @@
             dates=0;
             var dbtype1 = $("#dbtype  option:selected").text();
             var sqltext = editor.getValue().trim();
+            var logName = $("#logName").val();
             if(dbtype1=="请选择" || dbtype1==''){
                  Msg.error("请先选择数据源~");
                 $("#msgDiv").show();
@@ -188,7 +192,8 @@
                 $("#msgSpan").text("执行时长:"+ dates +"毫秒");
             }, 200);
             var url = "/dbSource/sqlExecute/executeSql";
-            var params= {'dataType':dbtype1,'sqlText':sqltext};
+            var params= {'dataType':dbtype1,'sqlText':sqltext,'logName':logName};
+            debugger;
             $.ajax({
                 type:'POST',
                 url:url,
@@ -266,7 +271,7 @@
         return false;
     }
     //导出
-    $("#exportData").click(function () {
+/*    $("#exportData").click(function () {
         if(tabData==null){
             Msg.error("结果集为空,无法导出！");
             return false;
@@ -278,7 +283,7 @@
         var tempData = tabData[tabId];
         table.exportFile(tempData.config.id,tempData.config.data, 'csv');
         return false;
-    });
+    });*/
     //保存SQL文本
     $("#saveSqlText").click(function () {
         var sqltext = editor.getValue();
