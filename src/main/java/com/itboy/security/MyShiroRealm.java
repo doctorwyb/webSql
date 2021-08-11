@@ -1,5 +1,6 @@
 package com.itboy.security;
 
+import com.common.model.entity.AuthUser;
 import com.itboy.model.SysUser;
 import com.itboy.service.LoginService;
 import lombok.extern.log4j.Log4j2;
@@ -36,7 +37,7 @@ public class MyShiroRealm extends AuthorizingRealm {
         if (userName == null) {
             return null;
         }
-        SysUser user = loginService.findByUserName(userName);
+        AuthUser user = loginService.findByUserName(userName);
         if (user == null) {
             return null;
         }

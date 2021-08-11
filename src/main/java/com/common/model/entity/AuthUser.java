@@ -5,8 +5,6 @@ import java.io.Serializable;
 public class AuthUser implements Serializable {
     private String id;
 
-    private String userId;
-
     private String userName;
 
     private String name;
@@ -35,14 +33,6 @@ public class AuthUser implements Serializable {
 
     public void setId(String id) {
         this.id = id == null ? null : id.trim();
-    }
-
-    public String getUserId() {
-        return userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId == null ? null : userId.trim();
     }
 
     public String getUserName() {

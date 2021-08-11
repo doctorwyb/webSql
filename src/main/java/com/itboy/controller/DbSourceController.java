@@ -1,6 +1,7 @@
 package com.itboy.controller;
 
 import com.alibaba.fastjson.JSON;
+import com.common.model.entity.AuthUser;
 import com.itboy.db.DataSourceFactory;
 import com.itboy.db.DbSourceFactory;
 import com.itboy.db.JdbcUtils;
@@ -163,8 +164,7 @@ public class DbSourceController {
     public Map executeSql(ExecuteSql sql) {
         Map result = new HashMap();
         SysLog logs = new SysLog();
-        SysUser user = (SysUser) SecurityUtils.getSubject().getPrincipal();
-        String userName = user.getUserId()+":"+user.getUserName();
+        String userName = (String) SecurityUtils.getSubject().getPrincipal();
         try {
             result.put("code", 1);
             Map<String, Object> sqlParser = SqlDruidParser.sqlParser(sql.getDataType(), sql.getSqlText());
@@ -194,6 +194,7 @@ public class DbSourceController {
             logs.setLogName(sql.getLogName());
             logs.setLogDbSource(sql.getDataType());
             logs.setUserid(userName);
+            dbSourceService.insertLog(logs);
             result.put("dataList", dataList);
         } catch (Exception e) {
             //执行失败sql不保存记录
@@ -207,8 +208,8 @@ public class DbSourceController {
             result.put("code", 2);
             result.put("msg", e.getMessage());
         }finally {
-            SysSetup  sysSetup = dbSourceFactory.getSysSetUp();
-            if(sysSetup.getCol3()==1){ dbSourceService.insertLog(logs);}
+            /*SysSetup  sysSetup = dbSourceFactory.getSysSetUp();
+            if(sysSetup.getCol3()==1){}*/
         }
         return result;
     }

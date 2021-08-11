@@ -24,7 +24,7 @@ public class SysUser implements Serializable {
     @Id
     @GenericGenerator(name="generator",strategy = "native")
     @GeneratedValue(generator = "generator")
-    private Long userId;
+    private String id;
     @Column(nullable = false, unique = true)
     private String userName; //登录用户名
     @Column(nullable = false)

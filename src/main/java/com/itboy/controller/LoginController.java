@@ -1,6 +1,7 @@
 package com.itboy.controller;
 
 import com.alibaba.fastjson.JSON;
+import com.common.model.entity.AuthUser;
 import com.itboy.db.DbSourceFactory;
 import com.itboy.model.*;
 import com.itboy.service.LoginService;
@@ -43,7 +44,7 @@ public class LoginController {
         Subject currentUser = SecurityUtils.getSubject();
         if (currentUser.isAuthenticated() == true) {
             String userName = (String) currentUser.getPrincipal();
-            SysUser user = loginService.findByUserName(userName);
+            AuthUser user = loginService.findByUserName(userName);
             mav.setViewName("index");
             mav.addObject("users",user);
         }

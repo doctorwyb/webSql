@@ -1,5 +1,6 @@
 package com.itboy.service;
 
+import com.common.model.entity.AuthUser;
 import com.itboy.model.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -12,7 +13,7 @@ import java.util.Set;
  * @Date 2019/6/14 0014 10:52
  **/
 public interface LoginService {
-    SysUser findByUserName(String userName);
+    AuthUser findByUserName(String userName);
 
     LoginResult login(String userName, String password, HttpServletRequest request);
 

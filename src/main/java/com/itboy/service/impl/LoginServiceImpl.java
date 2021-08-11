@@ -62,13 +62,11 @@ public class LoginServiceImpl implements LoginService {
     private AuthUserMapper authUserMapper;
 
     @Override
-    public SysUser findByUserName(String userName) {
-        SysUser sysUser = new SysUser();
+    public AuthUser findByUserName(String userName) {
         AuthUserExample authUserExample = new AuthUserExample();
         authUserExample.createCriteria().andUserNameEqualTo(userName);
         AuthUser authUser =  authUserMapper.selectByExample(authUserExample).get(0);
-        BeanUtils.copyProperties(authUser,sysUser);
-        return sysUser;
+        return authUser;
 
     }
 
@@ -151,7 +149,7 @@ public class LoginServiceImpl implements LoginService {
 
     @Override
     public void updateUsers(SysUser sysUser) {
-        SysUser sysUserById  = sysUserRepository.findById(sysUser.getUserId()).get();
+      /*  SysUser sysUserById  = sysUserRepository.findById(sysUser.getId()).get();
         if(!"".equals(sysUser.getName()) && null!=sysUser.getName())sysUserById.setName(sysUser.getName());
         if(!"".equals(sysUser.getEmail()) && null!=sysUser.getEmail())sysUserById.setEmail(sysUser.getEmail());
         if(!"".equals(sysUser.getPassword()) &&null!=sysUser.getPassword()){
@@ -160,7 +158,7 @@ public class LoginServiceImpl implements LoginService {
         }
         sysUserRepository.save(sysUserById);
         RealmSecurityManager rsm = (RealmSecurityManager)SecurityUtils.getSecurityManager();
-        MyShiroRealm realm = (MyShiroRealm)rsm.getRealms().iterator().next();
+        MyShiroRealm realm = (MyShiroRealm)rsm.getRealms().iterator().next();*/
         //realm.clearAllCache();
     }
 
@@ -200,7 +198,7 @@ public class LoginServiceImpl implements LoginService {
             sysSetUpRepository.save(sysSetup);
             SysUser users = new SysUser();
             users.setPassword("df655ad8d3229f3269fad2a8bab59b6c");
-            users.setUserId(1l);
+            //users.setUserId(1l);
             users.setName("系统管理员");
             users.setUserName("admin");
             users.setSalt("1");

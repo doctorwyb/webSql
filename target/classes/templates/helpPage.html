@@ -15,8 +15,11 @@
 
 <div class="menus" style="margin:5px;">
     <blockquote class="layui-elem-quote">
-        用于记录执行脚本记录，可在标识不同环境的执行状态
-        &nbsp;
+        用于记录执行脚本记录，只有需要在生产上执行的脚本才需要在此项目中执行。
+        <br>
+        如果执行sql报错或有误，现阶段与我联系，由我来手动修改，之后会继续开发权限功能，将允许修改自己提交的脚本
+        <br>
+        在[sql窗口]页面执行sql，到[执行脚本记录]中查看执行结果
     </blockquote>
     <blockquote class="layui-elem-quote layui-quote-nm">
             作者：DOCTOR<br>
@@ -34,7 +37,7 @@
     <fieldset class="layui-elem-field">
         <legend>SQL管理</legend>
         <div class="layui-field-box">
-            SQL窗口我们每天都会用的功能,它强大无比;ctrl键智能提示,多行SQL查询 ","分割或换行,多行查询结果集导出,动态获取已保存的SQL文本。
+            SQL窗口我们每天都会用的功能,;ctrl键智能提示,多行SQL查询 ";"分割或换行,多行查询结果集导出,动态获取已保存的SQL文本。
             <br>使用三步: 选择数据源 > 输入脚本 > 执行
 
         </div>
@@ -51,25 +54,23 @@
     <fieldset class="layui-elem-field">
         <legend>系统管理</legend>
         <div class="layui-field-box">
-            系统设置内容请查阅以上信息。
-            <br>
-            数据库管理可登录内嵌H2操作台默认地址：jdbc:h2:~/dbfile 账号：sa 密码：123456
-            <br>
             连接池管理可查看数据源是否加载配置信息等
             <br>
         </div>
     </fieldset>
+
     <fieldset class="layui-elem-field">
-        <legend>常见错误</legend>
+        <legend>待开发功能</legend>
         <div class="layui-field-box">
-            1.未获取到有效数据源 >查看项目启动时主动初始化数据源,如果没有开启请手动点击加载。如果开启说明项目启动加载数据源时连接超时报错。可手动加载是否能连接,如果连接不上查看数据库是否正常。
+            1、增加用户权限功能，对自己提交的记录进行修改
             <br>
-            2.修改个人信息后必须重新登录,缓存中数据并没有更新~
+            2、优化[sql窗口]页面执行结果反馈
             <br>
-            3.锁屏解锁密码是websql,可自行修改。
+            3、优化[执行脚本记录]页面执行增加uat环境和甲方生产环境执行时间，并可批量选择一件导出sql文件。
             <br>
         </div>
     </fieldset>
+
 
 
 </div>
